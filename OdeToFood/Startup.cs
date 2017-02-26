@@ -44,10 +44,26 @@ namespace OdeToFood
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler(new ExceptionHandlerOptions
+                {
+                    ExceptionHandler = c => c.Response.WriteAsync("Opps!")
+                });
+            }
+
+            //app.UseDefaultFiles();
+            //app.UseStaticFiles(); => Next is the same this two lines:
+            app.UseFileServer();
+
+            app.UseWelcomePage(new WelcomePageOptions
+            {
+                Path = "/welcome"
+            });
 
             app.Run(async (context) =>
             {
-
+//                throw new Exception("Somthing wrong! (test exception) ");
                 var message = greeter.GetGreeting();
                 await context.Response.WriteAsync(message);
             });
