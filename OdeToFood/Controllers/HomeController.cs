@@ -49,8 +49,13 @@ namespace OdeToFood.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(RestaurantEditViewModel viewModel )
         {
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
             var newRestaurant = new Restaurant
             {
                 Name = viewModel.Name,
@@ -58,7 +63,7 @@ namespace OdeToFood.Controllers
             };
 
         newRestaurant=  _restaurantData.Add(newRestaurant);
-            return View(nameof(Details),newRestaurant);
+            return RedirectToAction(nameof(Details),new { id = newRestaurant.Id});
         }
 
     }
