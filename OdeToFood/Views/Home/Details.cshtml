@@ -1,0 +1,15 @@
+﻿@using OdeToFood.Controllers
+@model OdeToFood.Models.Restaurant
+
+@{
+    ViewBag.Title = "title";
+    Layout = null;
+}
+
+<h2>@Model.Name</h2>
+
+<div> ... details .... </div>
+<div>
+    @*@Html.ActionLink("Back", "Index", "Home");*@
+    @Html.ActionLink("Home", nameof(HomeController.Index), "Home");
+</div>

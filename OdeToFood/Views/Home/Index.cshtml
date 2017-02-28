@@ -20,7 +20,8 @@
         {
             <tr>
                 <td>Restaurant: </td>
-                <td>@restaur.Name</td>
+                @*<td> <a href="/home/details/@restaur.Id"> @restaur.Name</a></td>*@ 
+                <td> @Html.ActionLink(restaur.Name,"Details","Home", new { id = restaur.Id })</td>
             </tr>
         }
     </table>
