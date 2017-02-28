@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OdeToFood.Models.Restaurant>
+﻿@model OdeToFood.ViewModels.HomePageViewModel
 
 @{
     Layout = null;
@@ -12,11 +12,11 @@
 </head>
 <body>
 <div>
-    <h1>Hello from a view!</h1>
+    <h1>@Model.CurrentMessage</h1>
     <div>This is the home page</div>
     <hr/>
     <table >
-        @foreach (var restaur in Model)
+        @foreach (var restaur in Model.Restaurants)
         {
             <tr>
                 <td>Restaurant: </td>
