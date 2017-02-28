@@ -1,4 +1,4 @@
-﻿@model OdeToFood.Models.Restaurant
+﻿@model IEnumerable<OdeToFood.Models.Restaurant>
 
 @{
     Layout = null;
@@ -15,9 +15,15 @@
     <h1>Hello from a view!</h1>
     <div>This is the home page</div>
     <hr/>
-    <div>
-        <h2>Restaurant: @Model.Name</h2>
-    </div>
+    <table >
+        @foreach (var restaur in Model)
+        {
+            <tr>
+                <td>Restaurant: </td>
+                <td>@restaur.Name</td>
+            </tr>
+        }
+    </table>
 </div>
 </body>
 </html>
