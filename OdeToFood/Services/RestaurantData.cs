@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using OdeToFood.DataLayer;
 using OdeToFood.Models;
 
 namespace OdeToFood.Services
@@ -10,6 +11,35 @@ namespace OdeToFood.Services
         IEnumerable<Restaurant> GetAll();
         Restaurant Get(int id);
         Restaurant Add(Restaurant newRestaurant);
+    }
+
+    public class SqlRestaurantData : IRestaurantData
+    {
+        private readonly OdeToFoodDbContext _context;
+
+        public SqlRestaurantData(OdeToFoodDbContext context)
+        {
+            _context = context;
+        }
+        
+
+        public IEnumerable<Restaurant> GetAll()
+        {
+            return _context.Restaurants.ToList();
+        }
+
+        public Restaurant Get(int id)
+        {
+           return _context.Restaurants.SingleOrDefault(r => r.Id == id);
+        }
+
+        public Restaurant Add(Restaurant newRestaurant)
+        {
+            _context.Restaurants.Add(newRestaurant);
+            _context.SaveChanges();
+            return newRestaurant;
+
+        }
     }
 
 
