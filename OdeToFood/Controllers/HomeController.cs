@@ -24,7 +24,6 @@ namespace OdeToFood.Controllers
         {
             var viewModel = new HomePageViewModel();
             viewModel.Restaurants = _restaurantData.GetAll();
-            viewModel.CurrentMessage = _greeter.GetGreeting();
 
             return View(viewModel);
         }
