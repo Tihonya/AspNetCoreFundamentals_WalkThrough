@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OdeToFood.Models;
 using OdeToFood.Services;
@@ -9,17 +10,19 @@ using OdeToFood.ViewModels;
 
 namespace OdeToFood.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IRestaurantData _restaurantData;
-        private readonly IGreeter _greeter;
 
-        public HomeController(IRestaurantData restaurantData, IGreeter greeter)
+
+        public HomeController(IRestaurantData restaurantData)
         {
             _restaurantData = restaurantData;
-            _greeter = greeter;
+  
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var viewModel = new HomePageViewModel();
