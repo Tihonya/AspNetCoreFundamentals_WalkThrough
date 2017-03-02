@@ -12,7 +12,10 @@
         <tr>
             <td>Restaurant: </td>
             @*<td> <a href="/home/details/@restaur.Id"> @restaur.Name</a></td>*@ 
-            <td><a asp-controller="Home" asp-action="Details" asp-route-id="@restaur.Id">@restaur.Name !!</a></td>
+            <td>
+                <a asp-controller="Home" asp-action="Details" asp-route-id="@restaur.Id">@restaur.Name !!</a>
+                <a asp-action="Edit" asp-route-id="@restaur.Id">Edit</a>
+            </td>
         </tr>
     }
 </table>
