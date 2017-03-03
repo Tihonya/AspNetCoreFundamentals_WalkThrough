@@ -8,6 +8,7 @@
     <PackageId>OdeToFood</PackageId>
     <RuntimeFrameworkVersion>1.0.3</RuntimeFrameworkVersion>
     <PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;portable-net45+win8</PackageTargetFallback>
+    <UserSecretsId>f678d3b9-af82-44ea-ba8e-ff8d10e64be0</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
