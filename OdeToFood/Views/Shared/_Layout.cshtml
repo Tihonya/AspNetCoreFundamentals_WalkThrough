@@ -7,9 +7,20 @@
     <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-<div>
-    @await Component.InvokeAsync("LoginLogout")
-</div>
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="" class="navbar-brand">OdeToFood</a>
+            </div>
+            <div class="navbar-right">
+                @await Component.InvokeAsync("LoginLogout")
+            </div>
+        </div>
+    </nav>
+
+
+
 
 <div>
     @RenderBody()
